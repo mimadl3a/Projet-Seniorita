@@ -23,39 +23,28 @@
 		    <p>Veuillez voir le tableau ci-dessous, et utiliser les controles a cote de chaque photo.</p>
 		  </div>
 		
-		<div id="contenu">			
-			<table class="table table-striped sortable" id="liste_prd">
-				<thead>
-					<tr>
-						<td><strong>#</strong></td>
-						<td><strong>Image</strong></td>
-						<td><strong>Libelle</strong></td>
-					</tr>
-				</thead>
-				<tbody>
-					{% for photo in liste %}
-						<tr>
-							<td>{{ photo.id }}</td>
-							<td>
-								<img width="100" height="100" src="{{ asset('upload/'~produit.id~"/small/"~photo.image) }}" alt="" class="img-thumbnail" />
-							</td>
-							<td>
-								<div class="row">
-									<div class="col-md-8">
-										{{ photo.libelle }}
-									</div>
-									<div class="col-md-2">
-										<a href="{{ path('Maj_produit', {'id' : photo.id}) }}">Modifier</a>
-									</div>
-									<div class="col-md-2">
-										<a onclick="spr('{{ path('Spr_gal_produit', {'id_sp' : photo.id,'id':produit.id}) }}')">Supprimer</a>
-									</div>
-								</div>
-							</td>
-						</tr>
-					{% endfor %}
-				</tbody>
-			</table>
+		<div id="contenu">	
+		<div class="row" style="padding-left: 20px">
+			{% for photo in liste %}
+            <div class="col-lg-3 col-md-4 portfolio-item">
+                <a href="#project-one">
+                    <img src="{{ asset('upload/'~produit.id~"/small/"~photo.image) }}" alt="" class="img-thumbnail" />
+                </a>
+                <h4>
+                	#{{ photo.id }} | {{ photo.libelle }}
+                </h4>
+                <p>
+                	<a href="{{ path('Maj_produit', {'id' : photo.id}) }}">Modifier</a> | 
+                	<a onclick="spr('{{ path('Spr_gal_produit', {'id_sp' : photo.id,'id':produit.id}) }}')">Supprimer</a>
+                </p>
+                
+            </div>
+            {% endfor %}
+        </div>
+		
+		
+				
+			
 		</div>
 		</div>
 		
