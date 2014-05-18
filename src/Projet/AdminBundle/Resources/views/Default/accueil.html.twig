@@ -1,0 +1,42 @@
+{% extends 'ProjetAdminBundle:Layout:base.html.twig' %}
+
+{% block body %}
+	{{ parent() }}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<a href="{{ path("Maj_texte",{'texte':'bienvenue'}) }}">
+					<img src="{{ asset("images/btn-admin/b1.png") }}" alt="">
+				</a>
+			</div>
+			<div class="col-md-3">
+				<a href='{{ path('Liste_cgv') }}'>
+					<img src="{{ asset("images/btn-admin/b2.png") }}" alt="">
+				</a>
+			</div>
+			<div class="col-md-3">
+				<img src="{{ asset("images/btn-admin/b3.png") }}" alt="">
+			</div>
+			<div class="col-md-3">
+				<img src="{{ asset("images/btn-admin/b4.png") }}" alt="">
+			</div>
+			<div class="col-md-12">
+				&nbsp;
+			</div>
+			<div class="col-md-3">
+				<img src="{{ asset("images/btn-admin/b5.png") }}" alt="">
+			</div>
+			<div class="col-md-3">
+				<img src="{{ asset("images/btn-admin/b6.png") }}" alt="">
+			</div>
+			<div class="col-md-3">
+				<img src="{{ asset("images/btn-admin/b7.png") }}" alt="">
+			</div>
+			<div class="col-md-3">
+				<a href="{{ path("Liste_produit") }}">
+					<img src="{{ asset("images/btn-admin/b12.png") }}" alt="" border=0>
+				</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

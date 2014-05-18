@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Administration{% endblock %}</title>
+        {% block stylesheets %}
+        	<meta name="viewport" content="width=device-width, initial-scale=1">
+        	<link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+        {% endblock %}
+        
+        {% block files %}
+        
+        
+        	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        	<script type="text/javascript" src="{{  asset('js/jquery.tablesorter.min.js') }}"></script>
+        	<script src="{{  asset('bootstrap/js/bootstrap.js') }}"></script>
+        	
+        	
+        	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+        	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        	
+        	<link rel="stylesheet" type="text/css" href="http://waxolunist.github.io/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.min.css"></link>
+        	
+        	
+			<script src="http://waxolunist.github.io/bootstrap3-wysihtml5-bower/components/wysihtml5/dist/wysihtml5-0.3.0.min.js"></script>
+			<script src="http://waxolunist.github.io/bootstrap3-wysihtml5-bower/components/handlebars/handlebars.runtime.min.js"></script>
+			<script src="http://waxolunist.github.io/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.min.js"></script>
+			
+			
+        {% endblock %}
+                
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}
+        	<div class="navbar navbar-default">
+        		<div class="container-fluid">
+        			<div class="navbar-header">        				
+        				<a class="navbar-brand" href="{{ path("Admin_home") }}">Accueil</a>
+        			</div>
+        			<div class="navbar-inner">
+        				<ul class="nav navbar-nav">
+        					<li {% if app.request.get('_route') == 'Liste_produit' 
+        					 or app.request.get('_route') == 'Ajout_produit' 
+        					 or app.request.get('_route') == 'Maj_produit'%} class="active" {% endif %}>
+        						<a href="{{ path('Liste_produit') }}">Produit</a>
+        					</li>
+        					<li {% if app.request.get('_route') == 'Liste_categorie'
+        					 or app.request.get('_route') == 'Ajout_categorie' 
+        					 or app.request.get('_route') == 'Maj_categorie' %} class="active" {% endif %}>
+        						<a href="{{ path('Liste_categorie') }}">Categorie</a>
+        					</li>
+        				</ul>
+        				
+        				<ul class="nav navbar-nav navbar-right">
+					        <li class="dropdown">
+					          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Connect&eacute; en tant que : {{ app.security.getToken().getUser().getUsername() }}<b class="caret"></b></a>
+					          <ul class="dropdown-menu">
+					            <li><a href="{{ path('logout') }}">Se deconnecter</a></li>
+					            <li><a href="#">Another action</a></li>
+					            <li><a href="#">Something else here</a></li>
+					            <li class="divider"></li>
+					            <li><a href="#">Separated link</a></li>
+					          </ul>
+					        </li>
+					    </ul>
+        			</div>
+        		</div>
+        	</div>
+        {% endblock %}
+        
+        {% block javascripts %}
+        	
+        	<script>
+				$(document).ready(function(){
+					$(function(){
+						$("#liste_cat").tablesorter();
+					});
+				});
+				
+				$( "#search" ).keyup(function() {
+					$.ajax({
+						type: "POST",
+						url: "{{ path('Liste_produit_ajax') }}",
+						data: { variable: $( "#search" ).val() },
+						success: function(data){
+							$( "#contenu" ).html( data );
+							$("#liste_prd").tablesorter();
+							$( "#search" ).blur();
+						},
+						dataType: "html"
+					});
+				});
+				$( "#search-cat" ).keyup(function() {
+					$.ajax({
+						type: "POST",
+						url: "{{ path('Liste_categorie_ajax') }}",
+						data: { variable: $( "#search-cat" ).val() },
+						success: function(data){
+							$( "#contenu-cat" ).html( data );
+							$("#liste_cat").tablesorter();
+							$( "#search-cat" ).blur();
+						},
+						dataType: "html"
+					});
+				});
+				
+				$(".alert").delay(3000).toggle( "blind" );
+
+				 function spr(route) {
+					 $( "#dialog-confirm" ).dialog({
+						 resizable: false,
+						 height:140,
+						 modal: true,
+						 buttons: {
+						 "Confirmer": function() {
+							 $( this ).dialog( "close" );
+							 	document.location.href=route;
+							 },
+						 	"Annuler": function() {
+						 		$( this ).dialog( "close" );
+						 	}
+						 }
+					});
+				};
+			</script>
+			
+			<script>
+			  $('#projet_adminbundle_texte_contenu').wysihtml5();
+			</script>
+			
+        	<div id="dialog-confirm" title="Empty the recycle bin?" style="display: none;font-size:12px">
+				<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Etes-vous sure?</p>
+			</div>
+        {% endblock %}
+    </body>
+</html>
