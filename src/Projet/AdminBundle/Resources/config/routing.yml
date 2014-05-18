@@ -61,9 +61,23 @@ Maj_produit:
     requirements:
         id: \d+
 
+
+
+
+
+
+
 Gal_produit:
     pattern:  /admin/produit/galerie/{id}
     defaults: { _controller: ProjetAdminBundle:Produit:listePhoto }
+    requirements:
+        id: \d+
+
+
+
+Ajout_gal_produit:
+    pattern:  /admin/produit/galerie/{id}/ajouter
+    defaults: { _controller: ProjetAdminBundle:Produit:ajouterPhoto }
     requirements:
         id: \d+
 

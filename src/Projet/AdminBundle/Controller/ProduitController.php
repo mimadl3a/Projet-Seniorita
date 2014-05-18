@@ -7,6 +7,8 @@ use Projet\AdminBundle\Entity\Produit;
 use Projet\AdminBundle\Form\ProduitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Projet\AdminBundle\Form\PhotoType;
+use Projet\AdminBundle\Entity\Photo;
 
 class ProduitController extends Controller
 {
@@ -178,11 +180,36 @@ class ProduitController extends Controller
     	}
     }
     
-    public function listePhotoAction($id){
-    	$liste = array();
+    public function listePhotoAction(Produit $p){
+    	$em = $this->getDoctrine()->getManager()->getRepository("ProjetAdminBundle:Photo");
+    	$liste = $em->findAll();
     	return $this->render("ProjetAdminBundle:Galerie:liste.html.twig",array(
     		"liste" => $liste,
+    		"produit" => $p,
     	));
+    }
+    public function ajouterPhotoAction(Produit $p, Request $request){
+    	$photo = new Photo();
+    	$form = $this->createForm(new PhotoType(), $photo);
+    	
+    	
+    	$form->handleRequest($request);
+    	if($form->isValid()){
+    		
+    		$photo = $form->getData();
+    		$photo->setProduit($p);
+    		
+    		$em = $this->getDoctrine()->getManager();
+    		$em->persist($photo);
+    		$em->flush();
+    		return $this->redirect($this->generateUrl("Gal_produit",array('id'=>$p->getId())));
+    	}
+    	
+    	return $this->render("ProjetAdminBundle:Galerie:ajout.html.twig",array(
+    		"form"		=> $form->createView(),
+    		"produit"	=> $p,
+    	));
+    	
     }
     
     
