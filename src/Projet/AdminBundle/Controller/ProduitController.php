@@ -213,6 +213,17 @@ class ProduitController extends Controller
     }
     
     
+    public function supprimerPhotoAction(Produit $p, $id_sp){
+    	
+    	$e = $this->getDoctrine()->getManager()->getRepository("ProjetAdminBundle:Photo");
+    	$ph = $e->findOneById($id_sp);
+    	
+    	$em = $this->getDoctrine()->getManager();
+    	$em->remove($ph);
+    	$em->flush();
+    	return $this->redirect($this->generateUrl("Gal_produit",array('id'=>$p->getId())));
+    }
+    
     private function getErrorMessages(\Symfony\Component\Form\Form $form) {
     	$errors = array();
     

@@ -83,6 +83,15 @@ Ajout_gal_produit:
 
 
 
+Spr_gal_produit:
+    pattern:  /admin/produit/galerie/{id}/supprimer/{id_sp}
+    defaults: { _controller: ProjetAdminBundle:Produit:supprimerPhoto }
+    requirements:
+        id: \d+
+        id_sp: \d+
+
+
+
 
 
 

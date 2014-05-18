@@ -48,7 +48,7 @@
 										<a href="{{ path('Maj_produit', {'id' : photo.id}) }}">Modifier</a>
 									</div>
 									<div class="col-md-2">
-										<a onclick="spr('{{ path('Spr_produit', {'id' : photo.id}) }}')">Supprimer</a>
+										<a onclick="spr('{{ path('Spr_gal_produit', {'id_sp' : photo.id,'id':produit.id}) }}')">Supprimer</a>
 									</div>
 								</div>
 							</td>
