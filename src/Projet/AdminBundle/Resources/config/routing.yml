@@ -92,6 +92,15 @@ Spr_gal_produit:
 
 
 
+Maj_gal_produit:
+    pattern:  /admin/produit/galerie/{id}/modifier/{id_ph}
+    defaults: { _controller: ProjetAdminBundle:Produit:modifierPhoto }
+    requirements:
+        id: \d+
+        id_sp: \d+
+
+
+
 
 
 

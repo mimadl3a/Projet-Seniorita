@@ -191,6 +191,7 @@ class ProduitController extends Controller
     public function ajouterPhotoAction(Produit $p, Request $request){
     	$photo = new Photo();
     	$form = $this->createForm(new PhotoType(), $photo);
+    	$form->add('image','file');
     	
     	
     	$form->handleRequest($request);
@@ -223,6 +224,34 @@ class ProduitController extends Controller
     	$em->flush();
     	return $this->redirect($this->generateUrl("Gal_produit",array('id'=>$p->getId())));
     }
+    
+    
+    
+    public function modifierPhotoAction(Produit $p, $id_ph, Request $request){
+    	$photo = $this->getDoctrine()->getManager()->getRepository("ProjetAdminBundle:Photo")->find($id_ph);
+    	$form = $this->createForm(new PhotoType(), $photo);
+    	$form->add('image','file',array(
+                'required' => false,
+                'data_class'=> null
+        ));
+    	
+    	$form->handleRequest($request);
+    	if($form->isValid()){
+    		$photo = $form->getData();
+    		$em = $this->getDoctrine()->getManager();
+    		$em->persist($photo);
+    		$em->flush();
+    		return $this->redirect($this->generateUrl("Gal_produit",array('id'=>$p->getId())));
+    		
+    	}
+    	
+    	return $this->render("ProjetAdminBundle:Galerie:modifier.html.twig",array(
+    		"form"		=> $form->createView(),
+    		"produit"	=> $p,
+    		"photo"		=> $photo,
+    	));
+    }
+    
     
     private function getErrorMessages(\Symfony\Component\Form\Form $form) {
     	$errors = array();

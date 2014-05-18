@@ -86,7 +86,9 @@ class Photo
      */
     public function setImage($image)
     {
-        $this->image = $image;
+    	if($image != ""){
+        	$this->image = $image;
+    	}
 
         return $this;
     }
@@ -154,7 +156,7 @@ class Photo
     		}else{
     			$this->image->move($this->getUploadRootDir()."big", $this->image->getClientOriginalName());
     		}
-    		$this->setimage($this->image->getClientOriginalName());
+    		$this->setImage($this->image->getClientOriginalName());
     	}else{
     		return;
     	}

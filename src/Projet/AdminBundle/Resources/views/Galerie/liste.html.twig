@@ -34,7 +34,7 @@
                 	#{{ photo.id }} | {{ photo.libelle }}
                 </h4>
                 <p>
-                	<a href="{{ path('Maj_produit', {'id' : photo.id}) }}">Modifier</a> | 
+                	<a href="{{ path('Maj_gal_produit', {'id_ph' : photo.id,'id':produit.id}) }}">Modifier</a> | 
                 	<a onclick="spr('{{ path('Spr_gal_produit', {'id_sp' : photo.id,'id':produit.id}) }}')">Supprimer</a>
                 </p>
                 

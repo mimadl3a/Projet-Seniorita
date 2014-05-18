@@ -16,7 +16,6 @@ class PhotoType extends AbstractType
     {
         $builder
             ->add('libelle')
-            ->add('image','file')
         ;
     }
     
