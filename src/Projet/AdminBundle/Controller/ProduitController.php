@@ -178,8 +178,11 @@ class ProduitController extends Controller
     	}
     }
     
-    public function infoSuppAction($id){
-    	return new Response("Info supp."); 
+    public function listePhotoAction($id){
+    	$liste = array();
+    	return $this->render("ProjetAdminBundle:Galerie:liste.html.twig",array(
+    		"liste" => $liste,
+    	));
     }
     
     

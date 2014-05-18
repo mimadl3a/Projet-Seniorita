@@ -16,13 +16,15 @@
 				alt="" class="img-thumbnail" /></td>
 			<td>
 				<div class="row">
-					<div class="col-md-6">{{ produit.libelle }}</div>
+					<div class="col-md-4">{{ produit.libelle }}</div>
 					<div class="col-md-2">
 						<a href="{{ path('Maj_produit', {'id' : produit.id}) }}">Modifier</a>
 					</div>
 					<div class="col-md-2">
-						<a href="{{ path('Info_supp_produit', {'id' : produit.id}) }}">Info
-							supp.</a>
+						<a href="{{ path('Gal_produit', {'id' : produit.id}) }}">Galerie photos</a>
+					</div>
+					<div class="col-md-2">
+						<a href="{{ path('Info_supp_produit', {'id' : produit.id}) }}">Info	supp.</a>
 					</div>
 					<div class="col-md-2">
 						<a onclick="spr('{{ path('Spr_produit', {'id' : produit.id}) }}')">Supprimer</a>
