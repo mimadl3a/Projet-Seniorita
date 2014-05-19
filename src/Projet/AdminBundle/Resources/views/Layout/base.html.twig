@@ -11,20 +11,20 @@
         {% block files %}
         
         
-        	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        	<script type="text/javascript" src="{{  asset('js/jquery.tablesorter.min.js') }}"></script>
-        	<script src="{{  asset('bootstrap/js/bootstrap.js') }}"></script>
+        	<script src="{{ asset('js/jquery.min.js') }}"></script>
+        	<script type="text/javascript" src="{{ asset('js/jquery.tablesorter.min.js') }}"></script>
+        	<script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
         	
         	
-        	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-        	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        	<link rel="stylesheet" href="{{ asset('css/jquery-ui.css')}}">
+        	<script src="{{ asset('js/jquery-ui.js')}}"></script>
         	
-        	<link rel="stylesheet" type="text/css" href="http://waxolunist.github.io/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.min.css"></link>
+        	<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap3-wysihtml5.min.css')}}"></link>
         	
         	
-			<script src="http://waxolunist.github.io/bootstrap3-wysihtml5-bower/components/wysihtml5/dist/wysihtml5-0.3.0.min.js"></script>
-			<script src="http://waxolunist.github.io/bootstrap3-wysihtml5-bower/components/handlebars/handlebars.runtime.min.js"></script>
-			<script src="http://waxolunist.github.io/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.min.js"></script>
+			<script src="{{ asset('js/wysihtml5-0.3.0.min.js')}}"></script>
+			<script src="{{ asset('js/handlebars.runtime.min.js')}}"></script>
+			<script src="{{ asset('js/bootstrap3-wysihtml5.min.js')}}"></script>
 			
 			
         {% endblock %}
@@ -129,7 +129,7 @@
 			  $('#projet_adminbundle_texte_contenu').wysihtml5();
 			</script>
 			
-        	<div id="dialog-confirm" title="Empty the recycle bin?" style="display: none;font-size:12px">
+        	<div id="dialog-confirm" title="Supression" style="display: none;font-size:12px">
 				<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Etes-vous sure?</p>
 			</div>
         {% endblock %}
