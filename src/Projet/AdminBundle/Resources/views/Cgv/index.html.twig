@@ -39,17 +39,17 @@
 					{% for cgv in liste %}
 						<tr>
 							<td>{{ cgv.id }}</td>
-							<td>{{ cgv.contenu }}</td>
+							<td>{{ cgv.titre }}</td>
 							<td>
 								<div class="row">
 									<div class="col-md-8">
-										{{ cgv.titre }}
+										{{ cgv.contenu|raw }}
 									</div>
 									<div class="col-md-2">
-										<a href="{{ path('Maj_categorie', {'id' : cgv.id}) }}">Modifier</a>
+										<a href="{{ path('Maj_cgv', {'id' : cgv.id}) }}">Modifier</a>
 									</div>
 									<div class="col-md-2">
-										<a href="{{ path('Spr_categorie', {'id' : cgv.id}) }}">Supprimer</a>
+										<a href="{{ path('Spr_cgv', {'id' : cgv.id}) }}">Supprimer</a>
 									</div>
 								</div>
 							</td>

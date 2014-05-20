@@ -104,6 +104,19 @@
 						dataType: "html"
 					});
 				});
+
+				$( "#search-cgv" ).keyup(function() {
+					$.ajax({
+						type: "POST",
+						url: "{{ path('Liste_cgv_ajax') }}",
+						data: { variable: $( "#search-cgv" ).val() },
+						success: function(data){
+							$( "#contenu-cgv" ).html( data );
+							$( "#search-cgv" ).blur();
+						},
+						dataType: "html"
+					});
+				});
 				
 				$(".alert").delay(3000).toggle( "blind" );
 

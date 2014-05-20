@@ -152,4 +152,22 @@ Ajouter_cgv:
     defaults: { _controller: ProjetAdminBundle:Cgv:ajouter}
 
 
+
+Spr_cgv:
+    pattern:  /admin/cgv/supprimer/{id}
+    defaults: { _controller: ProjetAdminBundle:Cgv:supprimer }
+    requirements:
+        id: \d+
+
+
+Maj_cgv:
+    pattern:  /admin/cgv/modifier/{id}
+    defaults: { _controller: ProjetAdminBundle:Cgv:modifier }
+    requirements:
+        id: \d+
+
+Liste_cgv_ajax:
+    pattern:  /admin/cgv/ajax
+    defaults: { _controller: ProjetAdminBundle:Cgv:ajax }
+    
     

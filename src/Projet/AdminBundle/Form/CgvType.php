@@ -17,8 +17,6 @@ class CgvType extends AbstractType
         $builder
             ->add('titre')
             ->add('contenu')
-            ->add('dateCreation')
-            ->add('dateMaj')
         ;
     }
     

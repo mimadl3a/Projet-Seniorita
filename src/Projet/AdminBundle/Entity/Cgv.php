@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Cgv
  *
  * @ORM\Table()
+ * @ORM\HasLifecycleCallbacks
  * @ORM\Entity(repositoryClass="Projet\AdminBundle\Entity\CgvRepository")
  */
 class Cgv
@@ -45,10 +46,14 @@ class Cgv
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateMaj", type="date")
+     * @ORM\Column(name="dateMaj", type="date", nullable=true)
      */
     private $dateMaj;
 
+    
+    public function __construct(){
+    	$this->setDateCreation(new \DateTime());
+    }
 
     /**
      * Get id
@@ -151,4 +156,13 @@ class Cgv
     {
         return $this->dateMaj;
     }
+    
+    
+    /**
+     * @ORM\PreUpdate()
+     */
+    public function DateMaj(){
+    	$this->setDateMaj(new \DateTime());
+    }
+    
 }
