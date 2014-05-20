@@ -75,6 +75,8 @@
 				$(document).ready(function(){
 					$(function(){
 						$("#liste_cat").tablesorter();
+						$("#liste_cgv").tablesorter();
+						$("#liste_prd").tablesorter();
 					});
 				});
 				
@@ -112,6 +114,7 @@
 						data: { variable: $( "#search-cgv" ).val() },
 						success: function(data){
 							$( "#contenu-cgv" ).html( data );
+							$("#liste_cgv").tablesorter();
 							$( "#search-cgv" ).blur();
 						},
 						dataType: "html"
