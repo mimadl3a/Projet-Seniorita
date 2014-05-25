@@ -17,8 +17,7 @@ class UtilisateurType extends AbstractType
         $builder
             ->add('username')
             ->add('password')
-            ->add('salt')
-            ->add('roles')
+            ->add('recaptcha', 'ewz_recaptcha')
         ;
     }
     

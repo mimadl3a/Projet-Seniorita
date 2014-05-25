@@ -10,7 +10,18 @@
 		      <strong>{{ flashMessage }}</strong>
 		    </div>
 		{% endfor %}
-	
+		
+		{% if not form.vars.valid %}
+			<div class="alert alert-warning alert-dismissable">
+			  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  <strong>
+			  	{% if(form_errors(form.recaptcha)) %}
+	              	Erreur, le code captcha est vide ou invalide.<br />
+	            {% endif %}
+
+			  </strong>
+			</div>
+		{% endif %}
 	</div>
 	
 	<div class="container">	
