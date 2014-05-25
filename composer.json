@@ -22,7 +22,8 @@
 		"sensio/generator-bundle" : "~2.3",
 		"incenteev/composer-parameter-handler" : "~2.0",
 		"knplabs/knp-paginator-bundle" : "~2.4",
-		"imagine/imagine" : "~0.5.0"
+		"imagine/imagine" : "~0.5.0",
+		"excelwebzone/recaptcha-bundle": "dev-master"
 	},
 	"scripts" : {
 		"post-install-cmd" : [

@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\True;
+
 class CategorieProduitType extends AbstractType
 {
         /**
@@ -16,7 +18,19 @@ class CategorieProduitType extends AbstractType
     {
         $builder
             ->add('libelle')
-        ;
+            ->add('recaptcha', 'ewz_recaptcha', 
+            		array(
+	            		'attr'=> array(
+		            		'options' => array(
+		            			'theme' => 'clean'
+		            		),
+            		),
+            		'mapped' => false,
+            		'constraints'   => array(
+            			new True()
+            		)
+        )
+       );
     }
     
     /**

@@ -4,6 +4,10 @@ namespace Projet\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
+
+
+
 /**
  * CategorieProduit
  *
@@ -28,6 +32,10 @@ class CategorieProduit
      */
     private $libelle;
 
+    /**
+     * @Recaptcha\True
+     */
+    public $recaptcha;
 
     /**
      * Get id

@@ -21,6 +21,7 @@ return array(
     'Knp\\Bundle\\PaginatorBundle' => array($vendorDir . '/knplabs/knp-paginator-bundle'),
     'Incenteev\\ParameterHandler' => array($vendorDir . '/incenteev/composer-parameter-handler'),
     'Imagine' => array($vendorDir . '/imagine/imagine/lib'),
+    'EWZ\\Bundle\\RecaptchaBundle\\' => array($vendorDir . '/excelwebzone/recaptcha-bundle'),
     'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),
     'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
