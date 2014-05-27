@@ -11,7 +11,7 @@ use Symfony\Component\Translation\IdentityTranslator;
 class AccueilController extends Controller{
 	
 	public function indexAction(){
-		//$this->us();
+		//$this->us();		
 		return $this->render("ProjetAdminBundle:Default:accueil.html.twig");
 	}
 	public function us(){
@@ -45,6 +45,21 @@ class AccueilController extends Controller{
 		
 		// On déclenche l'enregistrement
 		$manager->flush();
+	}
+	
+	
+	public function envoiMail(){
+
+		$message = \Swift_Message::newInstance()
+		->setSubject('Hello Email')
+		->setFrom('send@example.com')
+		->setTo('imad.karaoui@gmail.com')
+		->setBody($this->renderView('ProjetAdminBundle:Default:accueil.html.twig'))
+		;
+		$message->setContentType("text/html");
+		$this->get('mailer')->send($message);
+		
+		
 	}
 	
 	public function indexenAction($_locale)
