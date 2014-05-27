@@ -75,3 +75,20 @@ ewz_recaptcha:
     public_key:   6LdvmeUSAAAAAFyaoQvhcxpswJID8W71jYWNTJEO
     private_key:  6LdvmeUSAAAAAMhXaVjI75neB1XUP_huupaQeleP
     locale_key:   kernel.default_locale
+
+    
+monolog:
+    handlers:
+        mail:
+            type:         fingers_crossed
+            action_level: error
+            handler:      buffered
+        buffered:
+            type:    buffer
+            handler: swift
+        swift:
+            type:       swift_mailer
+            from_email: error@example.com
+            to_email:   mimadl3a@gmail.com
+            subject:    An Error Occurred!
+            level:      debug
