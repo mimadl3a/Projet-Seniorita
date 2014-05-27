@@ -49,6 +49,9 @@ class AccueilController extends Controller{
 	public function indexenAction($_locale)
 	{
 		/*
+		 * 
+		 * test
+		 * 
 		$this->get('translator')->setLocale($_locale);
 		
 		$t = "Symfony2 is great";
