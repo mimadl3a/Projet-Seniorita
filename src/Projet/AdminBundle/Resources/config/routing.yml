@@ -2,6 +2,12 @@ Admin_home:
     pattern:  /admin/accueil
     defaults: { _controller: ProjetAdminBundle:Accueil:index }
     
+Admin_home_fr:
+    pattern:  /admin/accueil/{_locale}
+    defaults: { _controller: ProjetAdminBundle:Accueil:indexen }
+    requirements:
+        _locale: fr|en|de
+    
 
 
 

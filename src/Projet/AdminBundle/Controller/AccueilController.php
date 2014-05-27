@@ -5,6 +5,8 @@ namespace Projet\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Projet\AdminBundle\Entity\Utilisateur;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Translation\IdentityTranslator;
 class AccueilController extends Controller{
 	
 	public function indexAction(){
@@ -42,6 +44,21 @@ class AccueilController extends Controller{
 		
 		// On déclenche l'enregistrement
 		$manager->flush();
+	}
+	
+	public function indexenAction($_locale)
+	{
+		/*
+		$this->get('translator')->setLocale($_locale);
+		
+		$t = "Symfony2 is great";
+		if($this->get('translator')->getLocale()=="fr")
+	    	$t = $this->get('translator')->trans("Symfony2 is great");
+	
+	    return new Response($t);
+	    */
+		
+		return $this->render("ProjetAdminBundle:Test:index.html.twig");
 	}
 	
 }
