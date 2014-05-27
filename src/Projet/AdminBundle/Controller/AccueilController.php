@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Projet\AdminBundle\Entity\Utilisateur;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Translation\IdentityTranslator;
+
 class AccueilController extends Controller{
 	
 	public function indexAction(){
@@ -49,6 +50,9 @@ class AccueilController extends Controller{
 	public function indexenAction($_locale)
 	{
 		/*
+		 * 
+		 * test
+		 * 
 		$this->get('translator')->setLocale($_locale);
 		
 		$t = "Symfony2 is great";
