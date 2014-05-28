@@ -28,11 +28,17 @@
 			
 			
         {% endblock %}
+        
+        
+        {% block signin %}
+			<link rel="stylesheet" type="text/css" href="{{ asset('css/signin.css')}}"></link>
+        {% endblock %}
                 
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         {% block body %}
+        
         	<div class="navbar navbar-default">
         		<div class="container-fluid">
         			<div class="navbar-header">        				

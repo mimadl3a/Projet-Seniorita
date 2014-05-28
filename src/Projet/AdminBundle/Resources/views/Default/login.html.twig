@@ -1,4 +1,10 @@
-{% extends "ProjetAdminBundle:Layout:base.html.twig" %} {% block body %}
+{% extends "ProjetAdminBundle:Layout:base.html.twig" %} 
+
+		{% block signin %}
+			{{ parent() }}
+        {% endblock %}
+
+{% block body %}
 <div class="container">
 	{# S'il y a une erreur, on l'affiche dans un joli cadre #} {% if error
 	%}
@@ -11,47 +17,22 @@
 
 <div class="container">
 	<br>
-	<div class="row">
-	<form action="{{ path('login_check') }}" method="post"
-		class="form-horizontal">
-		<div class="form-group">
-			<div class="control-group">
-				<label class="col-sm-2 control-label" for="inputText">Login:</label>
-				<div class="col-sm-10">
-					<input type="text" id="username" name="_username"
-						value="{{ last_username }}" required="true" placeholder="Username"
-						class="col-lg-4" />
-				</div>
-				<p class="help-block col-sm-10">Login ou adresse email.</p>
-			</div>
-			<div class="control-group">
-				<label class="col-sm-2 control-label" for="inputText">Mot de passe:</label>
-				<div class="col-sm-10">
-					<input type="password" id="password" name="_password" 
-						required="true" placeholder="Password" class="col-lg-4" />
-				</div>
-				<p class="help-block col-sm-10">Votre mot de passe.</p>
-			</div>
-			<div class="control-group">
-				<label class="col-sm-2 control-label" for="inputText">Keep me logged in</label>
-				<div class="col-sm-10">
-					<input type="checkbox" id="remember_me" name="_remember_me" checked />
-					Se souvenir de moi.
-				</div>
-			</div>
-			
-			<div class="control-group">
-				<div class="col-sm-4 control-label">
-					<button type="submit" class="btn btn-primary">Se connecter..</button>
-				</div>
-			</div>
-			<input type="hidden" name="_csrf_token"	value="{{ csrf_token('authenticate') }}">
+	<form action="{{ path('login_check') }}" method="post" class="form-signin" role="form">
+		
+        <h2 class="form-signin-heading">Veuillez s'il vous plait vous authentifier</h2>
+        <input type="username" class="form-control" placeholder="Username" value="{{ last_username }}" 
+        name="_username" id="username" required autofocus>
+        <input class="form-control" type="password" id="password" name="_password" 
+						required="true" placeholder="Password" />
+        <label class="checkbox">
+          <input type="checkbox" id="remember_me" name="_remember_me" checked /> Se souvenir de moi
+        </label>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Valider</button>
+        <input type="hidden" name="_csrf_token"	value="{{ csrf_token('authenticate') }}">
+      </form>
 
-		</div>
+    </div>
 
 
-	</form>
-	</div>
 
-</div>
 {% endblock %}

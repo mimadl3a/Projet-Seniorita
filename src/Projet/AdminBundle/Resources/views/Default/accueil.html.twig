@@ -1,4 +1,9 @@
 {% extends 'ProjetAdminBundle:Layout:base.html.twig' %}
+		{% block stylesheets %}
+        	{{ parent() }}
+        {% endblock %}
+        
+        {% block signin %}{% endblock %}
 
 {% block body %}
 	{{ parent() }}
