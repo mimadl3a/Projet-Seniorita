@@ -51,6 +51,7 @@ class CategorieController extends Controller
         	array(
 				"liste" => $liste,
         		'pagination' =>$this->listAction(),
+        		'var'=>75
         	)
 		);
     }    

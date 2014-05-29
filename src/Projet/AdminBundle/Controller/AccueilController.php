@@ -9,11 +9,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Translation\IdentityTranslator;
 
 class AccueilController extends Controller{
-	
+
 	public function indexAction(){
-		//$this->us();		
-		return $this->render("ProjetAdminBundle:Default:accueil.html.twig");
+		//$this->us();
+		return $this->render("ProjetAdminBundle:Default:accueil.html.twig",array("var"=>75));
 	}
+	
 	public function us(){
 		// Les noms d'utilisateurs à créer
 		$noms = array('winzou', 'John', 'Talus');
@@ -46,8 +47,7 @@ class AccueilController extends Controller{
 		// On déclenche l'enregistrement
 		$manager->flush();
 	}
-	
-	
+		
 	public function envoiMail(){
 
 		$message = \Swift_Message::newInstance()
