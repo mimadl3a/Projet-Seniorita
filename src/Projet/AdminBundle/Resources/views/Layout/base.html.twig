@@ -26,6 +26,7 @@
 			<script src="{{ asset('js/handlebars.runtime.min.js')}}"></script>
 			<script src="{{ asset('js/bootstrap3-wysihtml5.min.js')}}"></script>
 			
+			<link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 			
         {% endblock %}
         
@@ -39,25 +40,18 @@
     <body>
         {% block body %}
         
-        	<div class="navbar navbar-default">
+        	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         		<div class="container-fluid">
-        			<div class="navbar-header">        				
+        			<div class="navbar-header">
+        				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				            <span class="sr-only">Toggle navigation</span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+				            <span class="icon-bar"></span>
+				          </button>        				
         				<a class="navbar-brand" href="{{ path("Admin_home") }}">Accueil</a>
         			</div>
-        			<div class="navbar-inner">
-        				<ul class="nav navbar-nav">
-        					<li {% if app.request.get('_route') == 'Liste_produit' 
-        					 or app.request.get('_route') == 'Ajout_produit' 
-        					 or app.request.get('_route') == 'Maj_produit'%} class="active" {% endif %}>
-        						<a href="{{ path('Liste_produit') }}">Produit</a>
-        					</li>
-        					<li {% if app.request.get('_route') == 'Liste_categorie'
-        					 or app.request.get('_route') == 'Ajout_categorie' 
-        					 or app.request.get('_route') == 'Maj_categorie' %} class="active" {% endif %}>
-        						<a href="{{ path('Liste_categorie') }}">Categorie</a>
-        					</li>
-        				</ul>
-        				
+        			<div class="navbar-inner navbar-collapse collapse">        				
         				<ul class="nav navbar-nav navbar-right">
 					        <li class="dropdown">
 					          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Connect&eacute; en tant que : {{ app.security.getToken().getUser().getUsername() }}<b class="caret"></b></a>
@@ -72,7 +66,25 @@
 					    </ul>
         			</div>
         		</div>
-        	</div>
+        		
+        		 <div class="container-fluid">
+			      <div class="row">
+			        <div class="col-sm-3 col-md-2 sidebar">
+			          <ul class="nav nav-sidebar">
+			            <li><a href="{{ path('Liste_produit') }}">Produits</a></li>
+			            <li><a href="{{ path('Liste_categorie') }}">Categories</a></li>
+			            <li><a href="{{ path('Maj_texte',{'texte':'bienvenue'}) }}">Texte acceuil</a></li>
+			            <li><a href="{{ path('Liste_cgv') }}">Conditions generales de vente</a></li>
+			          </ul>
+			          
+			        </div>
+			        
+			      </div>
+			    </div>
+        		
+        		
+        		
+        	</div>        
         {% endblock %}
         
         {% block javascripts %}

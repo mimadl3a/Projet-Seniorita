@@ -2,36 +2,41 @@
 {% block signin %}{% endblock %}
 {% block body %}
 	{{ parent() }}
-	<div class="container">
-		<h2>Ajout nouveau produit</h2>
-		{% for flashMessage in app.session.flashbag.get('erreur') %}
-		    <div class="alert bg-warning">
-		      <button type="button" class="close" data-dismiss="alert">&times;</button>
-		      <strong>{{ flashMessage }}</strong>
-		    </div>
-		{% endfor %}
-		
-		{% if not form.vars.valid %}
-			<div class="alert alert-warning alert-dismissable">
-			  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-			  <strong>
-			  	{% if(form_errors(form.prixHt)) %}
-	              	Le prix ht est invalide.<br />
-	            {% endif %}
-			  	{% if(form_errors(form.prixTtc)) %}
-	              	Le prix ttc est invalide.<br />
-	            {% endif %}
-			  	{% if(form_errors(form.lien)) %}
-	              	Url invalide.<br />
-	            {% endif %}
-
-			  </strong>
-			</div>
-		{% endif %}
-		
-	</div>
 	
-	<div class="container">
+		 <div class="container-fluid">
+	      <div class="row">
+	        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<h2 class="page-header">Ajout nouveau produit</h2>
+			{% for flashMessage in app.session.flashbag.get('erreur') %}
+			    <div class="alert bg-warning">
+			      <button type="button" class="close" data-dismiss="alert">&times;</button>
+			      <strong>{{ flashMessage }}</strong>
+			    </div>
+			{% endfor %}
+			
+			{% if not form.vars.valid %}
+				<div class="alert alert-warning alert-dismissable">
+				  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				  <strong>
+				  	{% if(form_errors(form.prixHt)) %}
+		              	Le prix ht est invalide.<br />
+		            {% endif %}
+				  	{% if(form_errors(form.prixTtc)) %}
+		              	Le prix ttc est invalide.<br />
+		            {% endif %}
+				  	{% if(form_errors(form.lien)) %}
+		              	Url invalide.<br />
+		            {% endif %}
+	
+				  </strong>
+				</div>
+			{% endif %}
+		 </div>
+		</div>
+		
+			
+	<div class="row">
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<form action="{{ path('Ajout_produit') }}" method="post"{{ form_enctype(form) }} class="form">
 		<div class="form-group">
 		
@@ -109,6 +114,12 @@
 			
 		</div>
 		</form>
+     </div>
+    </div>
+	
+	
+	
 	</div>
+	
 	
 {% endblock %}

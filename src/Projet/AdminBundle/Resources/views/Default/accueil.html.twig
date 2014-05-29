@@ -4,44 +4,29 @@
         {% endblock %}
         
         {% block signin %}{% endblock %}
+        
 
 {% block body %}
+	
 	{{ parent() }}
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3">
-				<a href="{{ path("Maj_texte",{'texte':'bienvenue'}) }}">
-					<img src="{{ asset("images/btn-admin/b1.png") }}" alt="">
-				</a>
-			</div>
-			<div class="col-md-3">
-				<a href='{{ path('Liste_cgv') }}'>
-					<img src="{{ asset("images/btn-admin/b2.png") }}" alt="">
-				</a>
-			</div>
-			<div class="col-md-3">
-				<img src="{{ asset("images/btn-admin/b3.png") }}" alt="">
-			</div>
-			<div class="col-md-3">
-				<img src="{{ asset("images/btn-admin/b4.png") }}" alt="">
-			</div>
-			<div class="col-md-12">
-				&nbsp;
-			</div>
-			<div class="col-md-3">
-				<img src="{{ asset("images/btn-admin/b5.png") }}" alt="">
-			</div>
-			<div class="col-md-3">
-				<img src="{{ asset("images/btn-admin/b6.png") }}" alt="">
-			</div>
-			<div class="col-md-3">
-				<img src="{{ asset("images/btn-admin/b7.png") }}" alt="">
-			</div>
-			<div class="col-md-3">
-				<a href="{{ path("Liste_produit") }}">
-					<img src="{{ asset("images/btn-admin/b12.png") }}" alt="" border=0>
-				</a>
-			</div>
+	<div class="container-fluid">
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<h1 class="page-header"><br>Bienvenue</h1>
+			<blockquote>
+              <p>
+              	Pour commencer, veuillez selectionner un menu depuis la gauche.
+              	<br>
+              	<strong>Pour toutes informations supplementaires, </strong> 
+              	Priere de contacter l'administrateur du systeme.
+              </p>
+            </blockquote>
 		</div>
 	</div>
+	
+	
+
+   
+	
+	
+	
 {% endblock %}
