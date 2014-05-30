@@ -1,9 +1,9 @@
-{% extends 'ProjetAdminBundle:Layout:base.html.twig' %}
+{% extends 'ProjetAdminBundle:Layout:sb-admin.html.twig' %}
 {% block signin %}{% endblock %}
 {% block body %}
 	{{ parent() }}
 	
-		 <div class="container-fluid">
+		 <div class="container-fluid col-sm-11 col-sm-offset-1">
 	      <div class="row">
 	        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 			<h2 class="page-header">Ajout nouveau produit</h2>
@@ -59,17 +59,17 @@
 			</div>
 			
 			<div class="control-group">
-				<label class="col-sm-2 control-label" for="inputText">{{ form_label(form.description, "Entrez la description: ") }}</label>
+				<label class="col-sm-2 control-label" for="inputText">{{ form_label(form.description, "Description: ") }}</label>
 				<div class="col-sm-10">{{ form_widget(form.description,{'attr':{'class':'col-lg-4'}}) }}</div>
 			</div>
 			
 			<div class="control-group">
-				<label class="col-sm-2 control-label" for="inputText">{{ form_label(form.metaKeywords, "Entrez la metaKeywords: ") }}</label>
+				<label class="col-sm-2 control-label" for="inputText">{{ form_label(form.metaKeywords, "MetaKeywords: ") }}</label>
 				<div class="col-sm-10">{{ form_widget(form.metaKeywords,{'attr':{'class':'col-lg-4'}}) }}</div>
 			</div>
 			
 			<div class="control-group">
-				<label class="col-sm-2 control-label" for="inputText">{{ form_label(form.metaDescription, "Entrez la metaDescription: ") }}</label>
+				<label class="col-sm-2 control-label" for="inputText">{{ form_label(form.metaDescription, "MetaDescription: ") }}</label>
 				<div class="col-sm-10">{{ form_widget(form.metaDescription,{'attr':{'class':'col-lg-4'}}) }}</div>
 			</div>
 			
@@ -123,3 +123,4 @@
 	
 	
 {% endblock %}
+{% block stats %}{% endblock %}

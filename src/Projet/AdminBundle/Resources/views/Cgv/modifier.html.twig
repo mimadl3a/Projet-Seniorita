@@ -1,11 +1,11 @@
-{% extends 'ProjetAdminBundle:Layout:base.html.twig' %}
+{% extends 'ProjetAdminBundle:Layout:sb-admin.html.twig' %}
 {% block signin %}{% endblock %}
 {% block body %}
 	{{ parent() }}
-		<div class="container-fluid">
+		<div class="container-fluid col-sm-11 col-sm-offset-1">
 	      <div class="row">
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<h2>Modificationde la condition</h2>
+				<h2>Modification de la condition</h2>
 				{% for flashMessage in app.session.flashbag.get('erreur') %}
 				    <div class="alert bg-warning">
 				      <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -48,3 +48,4 @@
 	</div>
 			
 {% endblock %}
+{% block stats %}{% endblock %}

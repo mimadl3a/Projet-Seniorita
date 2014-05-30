@@ -176,4 +176,11 @@ Liste_cgv_ajax:
     pattern:  /admin/cgv/ajax
     defaults: { _controller: ProjetAdminBundle:Cgv:ajax }
     
+
+
+
+stats:
+    pattern:  /admin/stats
+    defaults: { _controller: ProjetAdminBundle:Stats:index }
+ 
     

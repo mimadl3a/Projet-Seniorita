@@ -24,6 +24,7 @@ class CategorieController extends Controller
 		);
 	
 		// parameters to template
+		$pagination->setUsedRoute('Liste_categorie');
 		$pagination->setTemplate('ProjetAdminBundle:Layout:pagination.html.twig');
 		return $pagination;
 	}
@@ -41,6 +42,7 @@ class CategorieController extends Controller
 		);
 	
 		// parameters to template
+		$pagination->setUsedRoute('Liste_categorie');
 		$pagination->setTemplate('ProjetAdminBundle:Layout:pagination.html.twig');
 		return $pagination;
 	}

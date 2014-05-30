@@ -26,6 +26,7 @@ class ProduitController extends Controller
 		);
 	
 		// parameters to template
+		$pagination->setUsedRoute('Liste_produit');
 		$pagination->setTemplate('ProjetAdminBundle:Layout:pagination.html.twig');
 		return $pagination;
 	}
@@ -41,7 +42,8 @@ class ProduitController extends Controller
 				$this->get('request')->query->get('page', 1)/*page number*/,
 				5/*limit per page*/
 		);
-	
+
+		$pagination->setUsedRoute('Liste_produit');
 		$pagination->setTemplate('ProjetAdminBundle:Layout:pagination.html.twig');
 		return $pagination;
 	}
