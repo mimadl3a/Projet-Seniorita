@@ -185,7 +185,7 @@ class ProduitController extends Controller
     
     public function listePhotoAction(Produit $p){
     	$em = $this->getDoctrine()->getManager()->getRepository("ProjetAdminBundle:Photo");
-    	$liste = $em->findAll();
+    	$liste = $em->findByProduit($p);
     	return $this->render("ProjetAdminBundle:Galerie:liste.html.twig",array(
     		"liste" => $liste,
     		"produit" => $p,
