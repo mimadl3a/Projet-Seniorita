@@ -2140,6 +2140,19 @@ function DrawCalendar(){
 	/* initialize the calendar
 	-----------------------------------------------------------------*/
 	var calendar = $('#calendar').fullCalendar({
+		events: [
+			{
+				id:'1',
+				title: 'Event1',
+				start: '2014-04-04'
+			},
+			{
+				id:'2',
+				title: 'Event2',
+				start: '2014-05-05'
+			}
+			
+		],
 		header: {
 			left: 'prev,next today',
 			center: 'title',
@@ -2173,6 +2186,7 @@ function DrawCalendar(){
 				CloseModalBox();
 			});
 			$('#event_submit').on('click', function(){
+				alert($('#newevent_name').val());
 				var new_event_name = $('#newevent_name').val();
 				if (new_event_name != ''){
 					calendar.fullCalendar('renderEvent',
@@ -2244,6 +2258,7 @@ function DrawCalendar(){
 				CloseModalBox();
 			});
 			$('#event_delete').on('click', function(){
+				alert("delete: "+calEvent._id);
 				calendar.fullCalendar('removeEvents' , function(ev){
 					return (ev._id == calEvent._id);
 				});
