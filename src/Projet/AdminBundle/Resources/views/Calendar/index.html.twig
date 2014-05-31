@@ -1,0 +1,89 @@
+{% extends 'ProjetAdminBundle:Layout:sb-admin.html.twig' %}
+		{% block stylesheets %}
+        	{{ parent() }}
+        {% endblock %}
+        
+        {% block signin %}{% endblock %}
+        
+
+{% block body %}
+	
+	{{ parent() }}
+	<div class="container-fluid">
+	<div id="modalbox">
+	<div class="devoops-modal">
+		<div class="devoops-modal-header">
+			<div class="modal-header-name">
+				<span>Basic table</span>
+			</div>
+			<div class="box-icons">
+				<a class="close-link">
+					<i class="fa fa-times"></i>
+				</a>
+			</div>
+		</div>
+		<div class="devoops-modal-inner">
+		</div>
+		<div class="devoops-modal-bottom">
+		</div>
+	</div>
+</div>
+	
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<h3 class="page-header">Calendrier</h3>
+			
+			
+			<div class="row full-calendar">
+	<div class="col-sm-3">
+		<div id="add-new-event">
+			<h4 class="page-header">Ajouter action</h4>
+			<div class="form-group">
+				<label>Le titre</label>
+				<input type="text" id="new-event-title" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Le contenu</label>
+				<textarea class="form-control" id="new-event-desc" rows="3"></textarea>
+			</div>
+			<a href="#" id="new-event-add" class="btn btn-primary pull-right">Ajouter</a>
+			<div class="clearfix"></div>
+		</div>
+		<div id="external-events">
+			<h4 class="page-header" id="events-templates-header">Glisser</h4>
+			<div class="external-event">Work time</div>
+			<div class="external-event">Conference</div>
+			<div class="external-event">Meeting</div>
+			<div class="external-event">Restaurant</div>
+			<div class="external-event">Launch</div>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" id="drop-remove"> Enlever element apres utilisation
+					<i class="fa fa-square-o small"></i>
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-9">
+		<div id="calendar"></div>
+	</div>
+</div>
+<script>
+$(document).ready(function() {
+	// Set Block Height
+	SetMinBlockHeight($('#calendar'));
+	// Create Calendar
+	DrawFullCalendar();
+});
+</script>
+			
+	        
+	        
+	        
+		</div>
+	</div>
+	
+
+	
+{% endblock %}
+
+{% block stats %}{% endblock %}

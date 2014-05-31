@@ -1,5 +1,6 @@
 {% extends 'ProjetAdminBundle:Layout:sb-admin.html.twig' %}
 {% block signin %}{% endblock %}
+{% block calendar %}{% endblock %}
 {% block body %}
 	{{ parent() }}
 	<div class="container-fluid col-sm-11 col-sm-offset-1">
@@ -7,7 +8,7 @@
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<h2>Liste des photos du Produit,<small> Nombre egal a: {{ liste|length }}</small></h2>
 				<a href="{{ path('Ajout_gal_produit',{'id':produit.id}) }}" class="btn btn-info">Ajouter nouvelle photo</a>
-				
+				<br><br>
 				{% for flashMessage in app.session.flashbag.get('erreur') %}
 				    <div class="alert bg-warning">
 				      <button type="button" class="close" data-dismiss="alert">&times;</button>

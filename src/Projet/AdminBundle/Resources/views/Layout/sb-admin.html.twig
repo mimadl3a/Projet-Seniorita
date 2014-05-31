@@ -13,9 +13,69 @@
 		    <link rel="stylesheet" href="{{ asset('sb-admin/font-awesome/css/font-awesome.min.css') }}">
 		    <!-- Page Specific CSS -->
 		    <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+		    
+		    
+		    <!-- JavaScript -->
+		    <script src="{{ asset('js/jquery.min.js') }}"></script>
+		
+		    
+		    
+        	<script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
+        	<script type="text/javascript" src="{{ asset('js/jquery.tablesorter.min.js') }}"></script>
+		    
+		    
+		    <link rel="stylesheet" href="{{ asset('css/jquery-ui.css')}}">
+        	<script src="{{ asset('js/jquery-ui.js')}}"></script>
+        	
+        	<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap3-wysihtml5.min.css')}}"></link>
+        	
+        	
+			<script src="{{ asset('js/wysihtml5-0.3.0.min.js')}}"></script>
+			<script src="{{ asset('js/handlebars.runtime.min.js')}}"></script>
+			<script src="{{ asset('js/bootstrap3-wysihtml5.min.js')}}"></script>
+		    
+		    
+		    
+		    
         {% endblock %}
         
-        
+        {% block calendar %}
+			<!-- Add custom CSS here  -->
+			<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+			<link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+			<link href="{{ asset('plugins/fullcalendar/fullcalendar.css') }}" rel="stylesheet">
+			<link href="{{ asset('plugins/style.css') }}" rel="stylesheet">
+			
+			
+		    
+		    <script src="{{ asset('plugins/jquery/jquery-2.1.0.min.js')}}"></script>
+			<script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+			<script>
+				function LoadCalendarScript(callback){
+					function LoadFullCalendarScript(){
+						if(!$.fn.fullCalendar){
+							$.getScript("{{ asset('plugins/fullcalendar/fullcalendar.js') }}", callback);
+						}
+						else {
+							if (callback && typeof(callback) === "function") {
+								callback();
+							}
+						}
+					}
+					if (!$.fn.moment){
+						$.getScript("{{ asset('plugins/moment/moment.min.js') }}", LoadFullCalendarScript);
+					}
+					else {
+						LoadFullCalendarScript();
+					}
+				}
+			</script>
+			<script src="{{ asset('plugins/fullcalendar/lang/de.js')}}"></script>
+			<script src="{{ asset('js/calendar.js')}}"></script>
+		   
+		    
+		    
+        {% endblock %}
         
                 
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -37,11 +97,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav">
-            <li class="active"><a href="{{ path('Admin_home') }}"><i class="fa fa-dashboard"></i> Accueil</a></li>
-            <li><a href="{{ path('Liste_produit') }}"><i class="fa fa-bar-chart-o"></i> Produits</a></li>
+            <li class="active"><a href="{{ path('Admin_home') }}"><i class="fa fa-home"></i> Accueil</a></li>
+            <li><a href="{{ path('Liste_produit') }}"><i class="fa fa-barcode"></i> Produits</a></li>
             <li><a href="{{ path('Liste_categorie') }}"><i class="fa fa-table"></i> Categories</a></li>
-            <li><a href="{{ path('Liste_cgv') }}"><i class="fa fa-edit"></i> CGV</a></li>
-            <li><a href="{{ path('stats') }}"><i class="fa fa-bar-chart-o"></i> Statistiques</a></li>
+            <li><a href="{{ path('Liste_cgv') }}"><i class="fa fa-pencil"></i> CGV</a></li>
+            <li><a href="{{ path('Maj_texte',{'texte':'bienvenue'}) }}"><i class="fa fa-pencil"></i> Texte de bienvenue</a></li>
+            <li><a href="{{ path('stats') }}"><i class="fa fa-bar-chart-o"></i> Statistiques</a></li>            
+            <li><a href="{{ path('calendar') }}"><i class="fa fa-calendar"></i> Calendrier</a></li>
             
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i> Dropdown <b class="caret"></b></a>
@@ -119,28 +181,7 @@
         
         {% block javascript %}
         	
-		    <!-- JavaScript -->
-		    <script src="{{ asset('js/jquery.min.js') }}"></script>
-		
-		    <!-- Page Specific Plugins -->
-		    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-		    <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
-		    <script src="{{ asset('sb-admin/js/morris/chart-data-morris.js') }}"></script>
 		    
-		    
-        	<script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
-        	<script type="text/javascript" src="{{ asset('js/jquery.tablesorter.min.js') }}"></script>
-		    
-		    
-		    <link rel="stylesheet" href="{{ asset('css/jquery-ui.css')}}">
-        	<script src="{{ asset('js/jquery-ui.js')}}"></script>
-        	
-        	<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap3-wysihtml5.min.css')}}"></link>
-        	
-        	
-			<script src="{{ asset('js/wysihtml5-0.3.0.min.js')}}"></script>
-			<script src="{{ asset('js/handlebars.runtime.min.js')}}"></script>
-			<script src="{{ asset('js/bootstrap3-wysihtml5.min.js')}}"></script>
 			
 		    
 		    
@@ -226,6 +267,10 @@
         
         {% block stats %}
         	
+		    <!-- Page Specific Plugins -->
+		    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+		    <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
+		    <script src="{{ asset('sb-admin/js/morris/chart-data-morris.js') }}"></script>
 			<script type="text/javascript">
 			
 			function stats() {

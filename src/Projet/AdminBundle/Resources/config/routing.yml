@@ -183,4 +183,9 @@ stats:
     pattern:  /admin/stats
     defaults: { _controller: ProjetAdminBundle:Stats:index }
  
+
+calendar:
+    pattern:  /admin/calendar
+    defaults: { _controller: ProjetAdminBundle:Calendar:index }
+ 
     
