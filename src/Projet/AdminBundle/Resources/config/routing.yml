@@ -188,4 +188,15 @@ calendar:
     pattern:  /admin/calendar
     defaults: { _controller: ProjetAdminBundle:Calendar:index }
  
+ 
+calendar_ajouter:
+    pattern:  /admin/calendar/add/ajax
+    defaults: { _controller: ProjetAdminBundle:Calendar:ajouter }
+ 
+ 
+calendar_supprimer:
+    pattern:  /admin/calendar/spr/ajax
+    defaults: { _controller: ProjetAdminBundle:Calendar:supprimer }
+ 
+ 
     

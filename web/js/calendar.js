@@ -1,15 +1,4 @@
-//
-//    Main script of DevOOPS v1.0 Bootstrap Theme
-//
 "use strict";
-/*-------------------------------------------
-	Dynamically load plugin scripts
----------------------------------------------*/
-//
-// Dynamically load Fullcalendar Plugin Script
-// homepage: http://arshaw.com/fullcalendar
-// require moment.js
-//
 
 function LoadAjaxContent(url){
 	$('.preloader').show();
@@ -35,23 +24,7 @@ function LoadAjaxContent(url){
 function SetMinBlockHeight(elem){
 	elem.css('min-height', window.innerHeight - 49)
 }
-//
-//  Helper for correct size of Messages page
-//
 
-//
-// Helper for draw Sparkline plots on Dashboard page
-//
-function SparkLineDrawBarGraph(elem, arr, color){
-	if (color) {
-		var stacked_color = color;
-	}
-	else {
-		stacked_color = '#6AA6D6'
-	}
-	elem.sparkline(arr, { type: 'bar', barWidth: 7, highlightColor: '#000', barSpacing: 2, height: 40, stackedBarColor: stacked_color});
-}
-//
 //  Helper for open ModalBox with requested header, content and bottom
 //
 //
@@ -101,16 +74,20 @@ function DrawCalendar(){
 	/* initialize the calendar
 	-----------------------------------------------------------------*/
 	var calendar = $('#calendar').fullCalendar({
+		dayClick: function(date, allDay, jsEvent, view) {
+			var d = new Date(date)
+			alert('La date est: ' + date);
+	    },
 		events: [
 			{
 				id:'1',
 				title: 'Event1',
-				start: '2014-04-04'
+				start: '2014-06-01'
 			},
 			{
 				id:'2',
 				title: 'Event2',
-				start: '2014-05-05'
+				start: '2014-06-05'
 			}
 			
 		],
@@ -134,6 +111,7 @@ function DrawCalendar(){
 		selectable: true,
 		selectHelper: true,
 		select: function(start, end, allDay) {
+			//alert(end);
 			var form = $('<form id="event_form">'+
 				'<div class="form-group has-success has-feedback">'+
 				'<label">Libelle</label>'+
