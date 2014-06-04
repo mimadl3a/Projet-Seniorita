@@ -22,7 +22,7 @@ security:
             security: false
 
         admin:
-            pattern:    ^/admin
+            pattern:    ^/admin/*
             provider: main
             form_login:
                 login_path: login
@@ -31,7 +31,7 @@ security:
                 csrf_provider: form.csrf_provider
             logout:
                 path:   logout
-                target: /admin/login
+                target: /login
             anonymous: true
             security: true
             remember_me:
@@ -41,13 +41,12 @@ security:
                 domain:   ~
 
         login:
-            pattern:  ^/admin/login
+            pattern:  ^/login
             anonymous: true
         
 
 
     access_control:
-        - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: http }
-        - { path: ^/admin/categorie, roles: ROLE_ADMIN, requires_channel: http }
-        - { path: ^/admin/produit, roles: ROLE_ADMIN, requires_channel: http }
-        - { path: ^/admin/accueil, roles: ROLE_ADMIN, requires_channel: http }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: http }
+       #- { path: ^/admin/accueil, roles: ROLE_USER, requires_channel: http }
+        - { path: ^/admin/*, roles: ROLE_ADMIN, requires_channel: http }
